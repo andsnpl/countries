@@ -11,6 +11,7 @@
     "clean": "rm -rf build/",
     "_build": "NODE_ENV=production webpack -p --optimize-dedupe --progress",
     "build": "npm run clean && npm run _build",
+    "proxy": "corsproxy",
     "start": "NODE_ENV=development webpack-dev-server --inline"
   },
   "repository": {
@@ -51,5 +52,8 @@
     "webpack-dev-middleware": "^1.4.0",
     "webpack-dev-server": "^1.14.0",
     "webpack-hot-middleware": "^2.6.0"
+  },
+  "dependencies": {
+    "corsproxy": "^1.4.0"
   }
 }
