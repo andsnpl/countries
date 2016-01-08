@@ -21,7 +21,7 @@
     <td>
       <ul class="links">
         <li class="link" ng-repeat="neighbor in neighbors">
-          <a href="#/countries/{{ neighbor.countryCode }}/capital">
+          <a href="#/{{ neighbor.countryCode }}/capital">
             {{ neighbor.countryName }}
           </a>
         </li>

@@ -4,8 +4,9 @@ var webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = exports = {
+  context: path.resolve(__dirname, 'src'),
   entry: {
-    index: [path.resolve(__dirname, 'src/js/index.js')]
+    index: ['./js/index.js']
   },
   output: {
     path: path.resolve(__dirname, 'build/'),
@@ -29,8 +30,15 @@ module.exports = exports = {
             }
           }
         } },
+
       { test: /\.s[ac]ss$/,
-        loaders: ['style', 'css', 'postcss'] }
+        loaders: ['style', 'css', 'postcss'] },
+
+      { test: /templates\/.+\.html/,
+        loader: 'file',
+        query: {
+          name: '[path][name].[ext]'
+        } }
     ]
   },
   postcss: function () {
