@@ -4,5 +4,6 @@ import './components/countries-list.controller';
 import './components/country.controller';
 import './components/geodata.service';
 
-import 'file!../templates/countries-list.view.html';
-import 'file!../templates/country.view.html';
+import '../templates/index.view.html';
+import '../templates/countries-list.view.html';
+import '../templates/country.view.html';
