@@ -4,6 +4,8 @@ angular.module('countries').controller('countryCtrl', [
   '$scope', '$routeParams', 'geoCountryData',
   function ($scope, $routeParams, geoCountryData) {
 
+    $scope.loading = true;
+
     $scope.countryCode = $routeParams.countryCode;
     $scope.mapUrl
       = `http://www.geonames.org/img/country/250/`
@@ -21,6 +23,7 @@ angular.module('countries').controller('countryCtrl', [
         $scope.capitalName = data.capitalName;
         $scope.popCapital = data.popCapital;
         $scope.neighbors = data.neighbors;
+        $scope.loading = false;
       });
   }
 ]);

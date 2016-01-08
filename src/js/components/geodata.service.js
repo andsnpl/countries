@@ -41,7 +41,7 @@ angular.module('countries')
           'countryInfoJSON',  { country: countryCode });
 
         let neighbors = geoRequest(
-          'neighbors', { country: countryCode });
+          'neighbours', { country: countryCode });
 
         return $q.all({ countryInfo, neighbors })
           .then((results) => {
