@@ -17,6 +17,7 @@ angular.module('countries')
     '$http', 'checkHttpResponse', 'USERNAME', 'PROXY',
     function ($http, checkHttpResponse, USERNAME, PROXY) {
       return function (requestType, params) {
+        params || (params = {});
         params.username || (params.username = USERNAME);
         params.type || (params.type = 'JSON');
         return $http({ url: `${PROXY}/api.geonames.org/${requestType}`,
@@ -26,7 +27,7 @@ angular.module('countries')
       };
     }
   ])
-  .factory('geoCountryList', [
+  .factory('geoCountriesList', [
     'geoRequest',
     function (geoRequest) {
       // no country param -> all countries
