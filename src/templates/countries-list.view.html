@@ -11,7 +11,11 @@
   </thead>
   <tbody>
     <tr ng-repeat="country in countries">
-      <td>{{ country.countryName }}</td>
+      <td>
+        <a href="#/countries/{{ country.countryCode }}/capital">
+          {{ country.countryName }}
+        </a>
+      </td>
       <td>{{ country.countryCode }}</td>
       <td>{{ country.capital }}</td>
       <td>{{ country.areaInSqKm | number }}</td>
@@ -20,6 +24,8 @@
     </tr>
   </tbody>
 </table>
-<ul class="links">
-  <li class="link"><a href="#/">Home</a></li>
-</ul>
+<nav>
+  <ul class="links">
+    <li class="link"><a href="#/">Home</a></li>
+  </ul>
+</nav>

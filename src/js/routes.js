@@ -4,6 +4,9 @@ angular.module('countries').config([
   '$routeProvider',
   function ($routeProvider) {
     $routeProvider
+      .when('/', {
+        templateUrl: 'templates/index.view.html'
+      })
       .when('/countries/', {
         templateUrl: 'templates/countries-list.view.html',
         controller: 'countriesListCtrl as ctrl'
