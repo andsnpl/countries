@@ -10,7 +10,7 @@
   </tr>
   <tr>
     <td>Capital:</td>
-    <td>{{ capitalCity }}</td>
+    <td>{{ capitalName }}</td>
   </tr>
   <tr>
     <td>Population of Capital:</td>
@@ -21,7 +21,7 @@
     <td>
       <ul class="links">
         <li class="link" ng-repeat="neighbor in neighbors">
-          <a href="#/{{ neighbor.countryCode }}/capital">
+          <a href="#/countries/{{ neighbor.countryCode }}/capital">
             {{ neighbor.countryName }}
           </a>
         </li>

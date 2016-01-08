@@ -16,13 +16,13 @@ angular.module('countries').controller('countryCtrl', [
 
     // get the rest of the data from the server
     geoCountryData($scope.countryCode)
-      .then((data) => {
-        $scope.countryName = data.countryName;
-        $scope.popCountry = data.popCountry;
-        $scope.areaKm2 = data.areaKm2;
-        $scope.capitalName = data.capitalName;
-        $scope.popCapital = data.popCapital;
-        $scope.neighbors = data.neighbors;
+      .then((results) => {
+        $scope.countryName = results.countryName;
+        $scope.popCountry = results.popCountry;
+        $scope.areaKm2 = results.areaKm2;
+        $scope.capitalName = results.capitalName;
+        $scope.popCapital = results.popCapital;
+        $scope.neighbors = results.neighbors;
         $scope.loading = false;
       });
   }
