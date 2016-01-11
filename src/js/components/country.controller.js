@@ -1,10 +1,10 @@
 import angular from 'angular';
 
 angular.module('countries').controller('countryCtrl', [
-  '$scope', '$routeParams', 'geoCountryData',
-  function ($scope, $routeParams, geoCountryData) {
+  '$scope', '$rootScope', '$routeParams', 'geoCountryData',
+  function ($scope, $rootScope, $routeParams, geoCountryData) {
 
-    $scope.loading = true;
+    $rootScope.loading = true;
 
     $scope.countryCode = $routeParams.countryCode;
     $scope.mapUrl
@@ -23,7 +23,7 @@ angular.module('countries').controller('countryCtrl', [
         $scope.capitalName = results.capitalName;
         $scope.popCapital = results.popCapital;
         $scope.neighbors = results.neighbors;
-        $scope.loading = false;
+        $rootScope.loading = false;
       });
   }
 ]);

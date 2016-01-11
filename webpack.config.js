@@ -34,7 +34,7 @@ module.exports = exports = {
       { test: /\.s[ac]ss$/,
         loaders: ['style', 'css', 'postcss'] },
 
-      { test: /templates\/.+\.html/,
+      { test: /(?:^|\/)(?:templates|images)\//,
         loader: 'file',
         query: {
           name: '[path][name].[ext]'
