@@ -3,4 +3,7 @@ import 'angular-route';
 
 angular.module('countries', ['ngRoute'])
   .constant('USERNAME', 'bpaulanderson')
-  .constant('PROXY', '//localhost:1337'); // proxies my requests to allow CORS
+  .config(['$httpProvider', function ($httpProvider) {
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+  }]);

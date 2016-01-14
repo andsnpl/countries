@@ -14,13 +14,13 @@ angular.module('countries')
     }
   ])
   .factory('geoRequest', [
-    '$http', 'checkHttpResponse', 'USERNAME', 'PROXY',
-    function ($http, checkHttpResponse, USERNAME, PROXY) {
+    '$http', 'checkHttpResponse', 'USERNAME',
+    function ($http, checkHttpResponse, USERNAME) {
       return function (path, params) {
         params || (params = {});
         params.username || (params.username = USERNAME);
         params.type || (params.type = 'JSON');
-        return $http({ url: `${PROXY}/api.geonames.org/${path}`,
+        return $http({ url: `//api.geonames.org/${path}`,
                        type: 'GET',
                        params })
           .then(checkHttpResponse);
