@@ -1,13 +1,214 @@
-main.loading::after {
+@import '../../node_modules/bourbon/app/assets/stylesheets/bourbon';
+
+body {
+  font-size: 1rem;
+  font-family: Helvetica, sans-serif;
+  padding: 3rem;
+}
+
+p {
+  max-width: 35rem;
+  margin: 1.5rem auto;
+  font-size: 0.95rem;
+  line-height: 1.45em;
+}
+
+h1 {
+  font-family: Georgia, serif;
+}
+
+main.loading {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/loading-animation.gif');
+    background-size: initial;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
+
+.topheader {
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+  width: 75%;
+  max-width: 25rem;
+  margin: 0 auto;
+}
+
+.links {
+  list-style: none;
+  padding: 0;
+  max-width: 35rem;
+  margin: 1.5rem auto;
+  text-align: center;
+}
+
+.link {
+  display: inline-block;
+  padding: .5rem 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.countrieslist {
+  width: 100%;
+  margin-top: 2rem;
+
+  th {
+    text-align: left;
+  }
+
+  td {
+    height: 1.75rem;
+    overflow: hidden;
+  }
+}
+
+.countryname {
+  width: 25%;
+}
+
+.countrycode,
+.capitalname {
+  width: 20%;
+}
+
+.area-km2,
+.population,
+.continent {
+  width: 15%;
+}
+
+.countryname-header {
+  text-align: center;
+}
+
+.countryinfo {
+  width: 35rem;
+  margin: 2rem auto;
+  font-size: 1.25rem;
+}
+
+.infocell {
+  vertical-align: top;
+  width: 50%;
+  padding: 0.25rem 0;
+}
+
+.images {
+  display: table;
+  text-align: center;
+  width: 75%;
+  width: 40rem;
+  margin: 0 auto;
+}
+
+.image-row {
+  display: table-row;
+}
+
+.map, .flag {
+  display: table-cell;
+  vertical-align: middle;
+  width: 50%;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  padding-top: 0.75rem;
+  border: 1px solid #e0e0e0;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.scrollpositionreporter {
+  position: relative;
+}
+
+// General arrow styles
+
+// Parent element content is squeezed out
+.arrow {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+// White semi-transparent background as a first layer
+.arrow::before {
   content: '';
-  display: block;
   position: absolute;
-  top: 0;
   left: 0;
   right: 0;
+  height: 1rem;
+  background-color: white;
+  opacity: 0.7;
+}
+
+// Actual arrow graphic. Note: need to turn border-color-[side] to something
+// other than transparent before it will show up.
+.arrow::after {
+  content: '';
+  display: block;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 0.7rem 1rem 0.7rem 1rem;
+  position: absolute;
+  left: 2.5rem;
+  cursor: pointer;
+}
+
+// Up arrow styles
+
+.uparrow::before {
+  top: 0;
+}
+
+.uparrow::after {
+  border-bottom-color: #363636;
+  top: -0.6rem;
+}
+
+.is-scrolled-top .uparrow {
+  display: none;
+}
+
+// Down arrow styles
+
+.downarrow::before {
   bottom: 0;
-  background-image: url('../images/loading-animation.gif');
-  background-size: initial;
-  background-repeat: no-repeat;
-  background-position: center center;
+}
+
+.downarrow::after {
+  border-top-color: #363636;
+  bottom: -0.6rem;
+}
+
+.is-scrolled-bottom .downarrow {
+  display: none;
+}
+
+.neighbors {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 5.5rem;
+  overflow: scroll;
+}
+
+.neighbor {
+  font-size: 1.2rem;
 }
