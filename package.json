@@ -1,6 +1,6 @@
 {
   "name": "countries",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "",
   "directories": {
     "test": "test"
@@ -29,6 +29,7 @@
     "angular": "^1.4.8",
     "angular-animate": "^1.4.8",
     "angular-messages": "^1.4.8",
+    "angular-mocks": "^1.4.8",
     "angular-route": "^1.4.8",
     "autoprefixer": "^6.2.3",
     "babel-loader": "^6.2.1",
@@ -41,6 +42,10 @@
     "glob-loader": "^0.2.0",
     "html-webpack-plugin": "^1.7.0",
     "immutable": "^3.7.6",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.19",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-jasmine": "^0.3.6",
     "moment": "^2.11.0",
     "node-bourbon": "^4.2.3",
     "node-neat": "^1.7.2",
@@ -55,7 +60,5 @@
     "webpack-dev-server": "^1.14.0",
     "webpack-hot-middleware": "^2.6.0"
   },
-  "dependencies": {
-    "corsproxy": "^1.4.0"
-  }
+  "dependencies": {}
 }

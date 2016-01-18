@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="countries">
+<html lang="en" ng-app="countries" ng-cloak>
 <head>
   <meta charset="UTF-8">
   <title>Countries & Capitals</title>
+  <style>
+    [ng\:cloak],
+    [ng-cloak],
+    [data-ng-cloak],
+    [x-ng-cloak],
+    .ng-cloak,
+    .x-ng-cloak {
+      display: none !important;
+    }
+  </style>
 </head>
 <body>
   <header class="topheader">
     <h1>Countries & Capitals</h1>
   </header>
-  <main ng-view></main>
+  <main ng-view ng-class="{ 'loading': loading }"></main>
 </body>
 </html>

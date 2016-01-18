@@ -14,13 +14,13 @@ angular.module('countries')
     }
   ])
   .factory('geoRequest', [
-    '$http', 'checkHttpResponse', 'USERNAME', 'PROXY',
-    function ($http, checkHttpResponse, USERNAME, PROXY) {
-      return function (requestType, params) {
+    '$http', 'checkHttpResponse', 'USERNAME',
+    function ($http, checkHttpResponse, USERNAME) {
+      return function (path, params) {
         params || (params = {});
         params.username || (params.username = USERNAME);
         params.type || (params.type = 'JSON');
-        return $http({ url: `${PROXY}/api.geonames.org/${requestType}`,
+        return $http({ url: `//api.geonames.org/${path}`,
                        type: 'GET',
                        params })
           .then(checkHttpResponse);
@@ -46,7 +46,6 @@ angular.module('countries')
 
         return $q.all({ countryInfo, neighbors })
           .then((results) => {
-            console.log('country info and neighbors', results);
             // construct the bulk of the results object from the two requests
             return {
               countryCode,
@@ -64,7 +63,6 @@ angular.module('countries')
                 country: results.countryCode });
 
             return capitalRequest.then((capitalResults) => {
-              console.log(capitalResults);
               results.popCapital = capitalResults.geonames[0].population;
               // note we are returning the original results object
               // that was constructed above in the first callback.

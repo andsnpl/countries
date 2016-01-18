@@ -1,26 +1,26 @@
-<h2>{{ countryName }}</h2>
-<table>
+<h2 class="countryname-header">{{ countryName }}</h2>
+<table class="countryinfo">
   <tr>
-    <td>Population of Country:</td>
-    <td>{{ popCountry | number }}</td>
+    <td class="infocell">Population of Country:</td>
+    <td class="infocell">{{ popCountry | number }}</td>
   </tr>
   <tr>
-    <td>Area:</td>
-    <td>{{ areaKm2 | number }} square kilometers</td>
+    <td class="infocell">Area:</td>
+    <td class="infocell">{{ areaKm2 | number }} square kilometers</td>
   </tr>
   <tr>
-    <td>Capital:</td>
-    <td>{{ capitalName }}</td>
+    <td class="infocell">Capital:</td>
+    <td class="infocell">{{ capitalName }}</td>
   </tr>
   <tr>
-    <td>Population of Capital:</td>
-    <td>{{ popCapital | number }}</td>
+    <td class="infocell">Population of Capital:</td>
+    <td class="infocell">{{ popCapital | number }}</td>
   </tr>
   <tr>
-    <td>{{ neighbors.length | number }} neighbors</td>
-    <td>
-      <ul class="links">
-        <li class="link" ng-repeat="neighbor in neighbors">
+    <td class="infocell">{{ neighbors.length || 0 | number }} neighbors</td>
+    <td scroll-position-reporter class="infocell">
+      <ul class="neighbors">
+        <li class="neighbor" ng-repeat="neighbor in neighbors">
           <a href="#/countries/{{ neighbor.countryCode }}/capital">
             {{ neighbor.countryName }}
           </a>
@@ -30,8 +30,14 @@
   </tr>
 </table>
 <div class="images">
-  <img alt="map of {{ countryName }}" ng-src="{{ mapUrl }}">
-  <img alt="flag of {{ countryName }}" ng-src="{{ flagUrl }}">
+  <div class="image-row">
+    <div class="map">
+       <img alt="map of {{ countryName }}" ng-src="{{ mapUrl }}">
+    </div>
+    <div class="flag">
+      <img alt="flag of {{ countryName }}" ng-src="{{ flagUrl }}">
+    </div>
+  </div>
 </div>
 <nav>
   <ul class="links">
